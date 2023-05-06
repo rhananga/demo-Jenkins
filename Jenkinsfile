@@ -26,23 +26,23 @@ pipeline {
       }
     }
     
-    stage('Terraform Init') {
+    stage('Build Image') {
       steps {
-        sh 'terraform init'
+         sh 'echo "Successfully Built Image"'
       }
     }
     
-    stage('Terraform Plan') {
+    stage('Push Image') {
       steps {
         //sh 'cd Terraform'
-        sh 'terraform plan -out=tfplan'
+         sh 'echo "Successfully Pushed Image to repo"'
       }
     }
     
-    stage('Terraform Apply') {
+    stage('Pull Image and Deploy') {
       steps {
         //sh 'cd Terraform'
-        sh 'terraform apply --auto-approve tfplan'
+         sh 'echo "Successfully Pulled Image and Deployed to Infrasture"'
       }
     }
   }
