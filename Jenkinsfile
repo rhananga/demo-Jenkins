@@ -24,21 +24,21 @@ pipeline {
     
     stage('Terraform Init') {
       steps {
-        sh './terraform init'
+        sh 'terraform init'
       }
     }
     
     stage('Terraform Plan') {
       steps {
         //sh 'cd Terraform'
-        sh './terraform plan -out=tfplan'
+        sh 'terraform plan -out=tfplan'
       }
     }
     
     stage('Terraform Apply') {
       steps {
         //sh 'cd Terraform'
-        sh './terraform apply tfplan --auto-approve'
+        sh 'terraform apply tfplan --auto-approve'
       }
     }
   }
