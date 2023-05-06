@@ -31,14 +31,14 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         //sh 'cd Terraform'
-        sh './terraform plan'
+        sh './terraform plan -out=tfplan'
       }
     }
     
     stage('Terraform Apply') {
       steps {
         //sh 'cd Terraform'
-        sh './terraform apply --auto-approve'
+        sh './terraform apply tfplan --auto-approve'
       }
     }
   }
